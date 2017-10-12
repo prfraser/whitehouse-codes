@@ -1,3 +1,10 @@
-<h1>Code#show</h1>
-<p>Find me in app/views/code/show.html.erb</p>
-<p><%= @code %></p>
+<h1>Nuclear Codes</h1>
+<% if current_user.has_role? :russian %>
+		<p>Full Nuclear Code: <%= @fullcode %></p>
+	<% elsif current_user.has_role? :president %>
+		<p>Presidents Half of Nuclear Code: <%= @prescode %></p>
+	<% elsif current_user.has_role? :defence %>
+		<p>Defence Secretary Half of Nuclear Code: <%= @defcode %></p>
+<% end %>
+
+<%= @time %>
